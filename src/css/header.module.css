@@ -1,0 +1,34 @@
+.display {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+}
+
+.logo {
+  display: flex;
+  column-gap: 10px;
+  align-items: end;
+}
+
+.logoLetter {
+  fill: #ff6060;
+}
+
+.logoLetterHome {
+  transform: translateY(4px);
+}
+
+.menu {
+  display: flex;
+  column-gap: 60px;
+}
+
+.link {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ff6060;
+}
+
+.activeLink {
+  text-decoration: underline;
+}
