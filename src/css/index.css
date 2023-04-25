@@ -1,5 +1,6 @@
 html {
   font-size: 100%;
+  font-weight: 500;
 }
 
 body {
@@ -8,11 +9,6 @@ body {
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 a {
