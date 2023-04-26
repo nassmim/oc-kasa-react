@@ -32,3 +32,10 @@ figure,
 section {
   margin: 0;
 }
+
+@media screen and (max-width: 768px) {
+  body {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}

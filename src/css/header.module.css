@@ -1,6 +1,7 @@
 .display {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-top: 40px;
   margin-bottom: 65px;
 }
@@ -8,20 +9,19 @@
 .logo {
   display: flex;
   column-gap: 10px;
-  align-items: end;
 }
 
 .logoLetter {
   fill: #ff6060;
 }
 
-.logoLetterHome {
-  transform: translateY(4px);
+.logoLetterK {
+  transform: translateY(-15px);
 }
 
 .menu {
   display: flex;
-  column-gap: 60px;
+  column-gap: 65px;
 }
 
 .link {
@@ -31,4 +31,38 @@
 
 .activeLink {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .display {
+    padding-top: 20px;
+    margin-bottom: 15px;
+  }
+
+  .logoLetterK {
+    width: 37px;
+    height: 43px;
+    transform: translateY(-10px);
+  }
+  .logoLetterHome {
+    width: 32px;
+    height: 37px;
+  }
+  .logoLetterS {
+    width: 27px;
+    height: 33px;
+  }
+  .logoLetterA {
+    width: 28px;
+    height: 33px;
+  }
+
+  .menu {
+    column-gap: 15px;
+  }
+
+  .link {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
 }
