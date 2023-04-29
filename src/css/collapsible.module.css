@@ -32,3 +32,10 @@
 .arrowUp {
   transform: rotate(180deg);
 }
+
+@media screen and (max-width: 767px) {
+  .description.visible {
+    font-size: 0.75rem;
+    padding: 20px 5px 60px 10px;
+  }
+}
