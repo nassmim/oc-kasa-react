@@ -1,28 +1,5 @@
-.hero {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 223px;
+.bannerDisplay {
   margin-bottom: 45px;
-  border-radius: 25px;
-  overflow: hidden;
-}
-
-.background {
-  width: 100%;
-  height: 100%;
-  background: #000;
-  opacity: 0.35;
-}
-
-.title {
-  position: absolute;
-  max-width: 65%;
-  font-size: 3rem;
-  font-weight: 500;
-  color: #fff;
 }
 
 .gallery {
@@ -76,18 +53,6 @@
 }
 
 @media screen and (max-width: 991px) {
-  .hero {
-    height: 111px;
-    background-position: 47%;
-    background-size: cover;
-    margin-bottom: 25px;
-  }
-
-  .title {
-    left: 5%;
-    font-size: 1.5rem;
-  }
-
   .gallery {
     background-color: transparent;
     padding: 0;
