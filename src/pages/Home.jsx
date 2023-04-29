@@ -1,7 +1,7 @@
 import { useLoaderData, Link, useNavigation } from "react-router-dom"
 import { getFlats } from "../api/flats.js"
 import bannerImg from "../assets/backgrounds/home_banner.png"
-import home from "../css/home.module.css"
+import homeCSS from "../css/home.module.css"
 import Banner from "../components/Banner.jsx"
 
 export async function getFlatsLoader() {
@@ -17,33 +17,33 @@ export default function Home() {
 
   return (
     <>
-      <Banner bannerImg={bannerImg}>
+      <Banner bannerClass={homeCSS.bannerDisplay} bannerImg={bannerImg}>
         <h1 className="title">Chez vous, partout et ailleurs</h1>
       </Banner>
 
-      <section
+      <main
         className={
-          home.gallery + " " + navigation.state === "loading" ? "loading" : ""
+          homeCSS.main + " " + (navigation.state === "loading" ? "loading" : "")
         }
       >
         {flats && flats.length && (
           <>
-            <ul className={home.flats}>
+            <ul className={homeCSS.flats}>
               {flats.map((flat) => (
                 <li
                   key={flat.id}
-                  className={home.flat}
+                  className={homeCSS.flat}
                   style={{ backgroundImage: `url(${flat.pictures[0]})` }}
                 >
-                  <Link to={`flat/${flat.id}`} className={home.flatLink}>
-                    <h2 className={home.flatTitle}>{flat.title}</h2>
+                  <Link to={`flat/${flat.id}`} className={homeCSS.flatLink}>
+                    <h2 className={homeCSS.flatTitle}>{flat.title}</h2>
                   </Link>
                 </li>
               ))}
             </ul>
           </>
         )}
-      </section>
+      </main>
     </>
   )
 }

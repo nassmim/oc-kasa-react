@@ -1,10 +1,10 @@
 import "../css/banner.css"
 
-export default function Banner({ bannerImg, children }) {
+export default function Banner({ bannerClass, bannerImg, children }) {
   return (
     <>
       <div
-        className="bannerDisplay"
+        className={"bannerDisplay" + " " + bannerClass}
         style={{ backgroundImage: `url(${bannerImg})` }}
       >
         <div className="bannerBackground"></div>

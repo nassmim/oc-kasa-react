@@ -2,14 +2,14 @@
   margin-bottom: 45px;
 }
 
-.gallery {
+.main {
   background-color: #f7f7f7;
   padding: 60px 50px;
   border-radius: 25px;
   margin-bottom: 40px;
 }
 
-.gallery.loading {
+.main.loading {
   opacity: 0.25;
   transition: opacity 200ms;
   transition-delay: 200ms;
@@ -53,7 +53,7 @@
 }
 
 @media screen and (max-width: 991px) {
-  .gallery {
+  .main {
     background-color: transparent;
     padding: 0;
     border: none;
