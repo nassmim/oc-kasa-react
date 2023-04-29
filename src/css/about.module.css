@@ -12,6 +12,7 @@
 
 .section {
   max-width: 1023px;
+  width: 100%;
 }
 
 .collapsileTitle {
