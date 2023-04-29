@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Banner bannerClass={homeCSS.bannerDisplay} bannerImg={bannerImg}>
-        <h1 className="title">Chez vous, partout et ailleurs</h1>
+        <h1 className={homeCSS.title}>Chez vous, partout et ailleurs</h1>
       </Banner>
 
       <main
