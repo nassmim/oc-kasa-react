@@ -5,7 +5,9 @@ import arrowRight from "../assets/right_arrow.png"
 
 export default function SlideShow({ pictures }) {
   const picturesLength = pictures.length
+
   const [slideIndex, setSlideIndex] = useState(0)
+
   const goToPreviousSlide = () => {
     const isFirstSlide = slideIndex === 0
     const newSlideIndex = isFirstSlide ? picturesLength - 1 : slideIndex - 1
@@ -16,6 +18,15 @@ export default function SlideShow({ pictures }) {
     const newSlideIndex = isLastSlide ? 0 : slideIndex + 1
     setSlideIndex(newSlideIndex)
   }
+
+  const slideWidthPercent = 1 / picturesLength
+
+  const getSlidesStyle = () => {
+    return {
+      width: 100 * picturesLength + "%",
+      transform: `translateX(${-100 * slideWidthPercent * slideIndex + "%"})`,
+    }
+  }
   return (
     <>
       <div className={slideShowCSS.slideshow}>
@@ -25,10 +36,15 @@ export default function SlideShow({ pictures }) {
           className={slideShowCSS.arrow + " " + slideShowCSS.left}
           onClick={goToPreviousSlide}
         />
-        <div
-          className={slideShowCSS.slide}
-          style={{ backgroundImage: `url(${pictures[slideIndex]})` }}
-        ></div>
+        <div className={slideShowCSS.slides} style={getSlidesStyle()}>
+          {pictures.map((picture, pictureIndex) => (
+            <div
+              key={pictureIndex}
+              className={slideShowCSS.slide}
+              style={{ backgroundImage: `url(${picture})` }}
+            ></div>
+          ))}
+        </div>
         <img
           src={arrowRight}
           alt="Slide Suivante"
