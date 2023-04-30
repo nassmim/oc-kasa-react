@@ -30,12 +30,22 @@ export default function SlideShow({ pictures }) {
   return (
     <>
       <div className={slideShowCSS.slideshow}>
-        <img
-          src={arrowLeft}
-          alt="Slide Précédente"
-          className={slideShowCSS.arrow + " " + slideShowCSS.left}
-          onClick={goToPreviousSlide}
-        />
+        {picturesLength > 1 && (
+          <>
+            <img
+              src={arrowLeft}
+              alt="Slide Précédente"
+              className={slideShowCSS.arrow + " " + slideShowCSS.left}
+              onClick={goToPreviousSlide}
+            />
+            <img
+              src={arrowRight}
+              alt="Slide Suivante"
+              className={slideShowCSS.arrow + " " + slideShowCSS.right}
+              onClick={goToNextSlide}
+            />
+          </>
+        )}
         <div className={slideShowCSS.slides} style={getSlidesStyle()}>
           {pictures.map((picture, pictureIndex) => (
             <div
@@ -45,15 +55,11 @@ export default function SlideShow({ pictures }) {
             ></div>
           ))}
         </div>
-        <img
-          src={arrowRight}
-          alt="Slide Suivante"
-          className={slideShowCSS.arrow + " " + slideShowCSS.right}
-          onClick={goToNextSlide}
-        />
-        <p className={slideShowCSS.pictureNumber}>
-          {slideIndex + 1}/{picturesLength}
-        </p>
+        {picturesLength > 1 && (
+          <p className={slideShowCSS.pictureNumber}>
+            {slideIndex + 1}/{picturesLength}
+          </p>
+        )}
       </div>
     </>
   )

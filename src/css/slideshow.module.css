@@ -46,3 +46,19 @@
   font-size: 1.125rem;
   color: #fff;
 }
+
+@media (max-width: 767px) {
+  .slideshow {
+    height: 255px;
+    margin-bottom: 15px;
+  }
+
+  .arrow {
+    width: 12px;
+    height: 20px;
+  }
+
+  .pictureNumber {
+    display: none;
+  }
+}
