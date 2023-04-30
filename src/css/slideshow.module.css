@@ -28,3 +28,12 @@
   background-position: center;
   background-size: cover;
 }
+
+.pictureNumber {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.125rem;
+  color: #fff;
+}

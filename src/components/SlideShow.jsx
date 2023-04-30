@@ -4,15 +4,15 @@ import arrowLeft from "../assets/left_arrow.png"
 import arrowRight from "../assets/right_arrow.png"
 
 export default function SlideShow({ pictures }) {
+  const picturesLength = pictures.length
   const [slideIndex, setSlideIndex] = useState(0)
-
   const goToPreviousSlide = () => {
     const isFirstSlide = slideIndex === 0
-    const newSlideIndex = isFirstSlide ? pictures.length - 1 : slideIndex - 1
+    const newSlideIndex = isFirstSlide ? picturesLength - 1 : slideIndex - 1
     setSlideIndex(newSlideIndex)
   }
   const goToNextSlide = () => {
-    const isLastSlide = slideIndex === pictures.length - 1
+    const isLastSlide = slideIndex === picturesLength - 1
     const newSlideIndex = isLastSlide ? 0 : slideIndex + 1
     setSlideIndex(newSlideIndex)
   }
@@ -35,6 +35,9 @@ export default function SlideShow({ pictures }) {
           className={slideShowCSS.arrow + " " + slideShowCSS.right}
           onClick={goToNextSlide}
         />
+        <p className={slideShowCSS.pictureNumber}>
+          {slideIndex + 1}/{picturesLength}
+        </p>
       </div>
     </>
   )
