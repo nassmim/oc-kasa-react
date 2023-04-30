@@ -1,4 +1,4 @@
-import { Link, useRouteError } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import Header from "../components/Header.jsx"
 import Footer from "../components/Footer.jsx"
@@ -8,7 +8,9 @@ import "../css/index.css"
 import errorCSS from "../css/errorNotFound.module.css"
 
 export default function ErrorNotFound() {
-  const error = useRouteError()
+  const scrollWindow = () => {
+    window.scrollTo(0, 0)
+  }
 
   return (
     <>
@@ -20,7 +22,7 @@ export default function ErrorNotFound() {
             Oups! La page que vous demandez n'existe pas.
           </p>
         </section>
-        <Link to="/" className={errorCSS.link}>
+        <Link to="/" onClick={scrollWindow} className={errorCSS.link}>
           Retourner sur la page d’accueil
         </Link>
       </main>

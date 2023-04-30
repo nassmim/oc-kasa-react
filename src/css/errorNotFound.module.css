@@ -4,6 +4,7 @@
   align-items: center;
   row-gap: 180px;
   color: #ff6060;
+  padding-top: 105px;
   margin-bottom: 40px;
 }
 
@@ -27,4 +28,31 @@
   font-size: 1.125rem;
   color: #ff6060;
   text-decoration-line: underline;
+}
+
+@media (max-width: 767px) {
+  .error {
+    row-gap: 180px;
+    padding-top: 165px;
+    margin-bottom: 130px;
+  }
+
+  .information {
+    row-gap: 10px;
+  }
+
+  .title {
+    font-size: 6rem;
+  }
+
+  .message {
+    width: 78%;
+    text-align: center;
+    font-size: 1.125rem;
+    padding-left: 60px;
+  }
+
+  .link {
+    font-size: 0.875rem;
+  }
 }
