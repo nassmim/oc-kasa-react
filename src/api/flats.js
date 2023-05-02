@@ -1,6 +1,6 @@
 // --------------- API associée aux appartements ---------------
 
-const API_URL = "./data/flats.json"
+const API_URL = "/data/flats.json"
 
 /* Récupère l'ensemble des logements
     Paramètres
@@ -10,7 +10,7 @@ const API_URL = "./data/flats.json"
 */
 async function getFlats() {
   // Requête l'API
-  const flats = await fetchFlatsFromApi(API_URL)
+  const flats = await fetchFlatsFromApi()
   return flats
 }
 

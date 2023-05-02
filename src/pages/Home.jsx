@@ -3,6 +3,8 @@ import { getFlats } from "../api/flats.js"
 import bannerImg from "../assets/backgrounds/home_banner.png"
 import homeCSS from "../css/home.module.css"
 import Banner from "../components/Banner.jsx"
+import { useEffect } from "react"
+import Card from "../components/Card.jsx"
 
 export async function getFlatsLoader() {
   const flats = await getFlats().catch((err) => {
@@ -30,15 +32,12 @@ export default function Home() {
           <>
             <ul className={homeCSS.flats}>
               {flats.map((flat) => (
-                <li
+                <Card
                   key={flat.id}
-                  className={homeCSS.flat}
-                  style={{ backgroundImage: `url(${flat.pictures[0]})` }}
-                >
-                  <Link to={`flat/${flat.id}`} className={homeCSS.flatLink}>
-                    <h2 className={homeCSS.flatTitle}>{flat.title}</h2>
-                  </Link>
-                </li>
+                  id={flat.id}
+                  title={flat.title}
+                  picture={flat.pictures?.[0]}
+                />
               ))}
             </ul>
           </>

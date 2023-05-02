@@ -2,45 +2,18 @@ import Collapsible from "../components/Collapsible.jsx"
 import SlideShow from "../components/SlideShow.jsx"
 import flatCSS from "../css/flat.module.css"
 import { CollapsibleHeightProvider } from "../context/index.jsx"
+import { getFlat } from "../api/flats.js"
+import { useLoaderData } from "react-router-dom"
+
+export const getFlatLoader = async ({ params }) => {
+  const flat = await getFlat(params.id).catch((err) => {
+    throw new Error(err)
+  })
+  return flat
+}
 
 export default function Flat() {
-  const flat = {
-    id: "c67ab8a7",
-    title: "Appartement cosy",
-    cover:
-      "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
-    pictures: [
-      "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
-      "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-2.jpg",
-      "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-3.jpg",
-      "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-4.jpg",
-      "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-5.jpg",
-    ],
-    description:
-      "Votre maison loin de chez vous. Que vous veniez de l'autre bout du monde, ou juste de quelques stations de RER, vous vous sentirez chez vous dans notre appartement.",
-    host: {
-      name: "Nathalie Jean",
-      picture:
-        "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-12.jpg",
-    },
-    rating: "5",
-    location: "Ile de France - Paris 17e",
-    equipments: [
-      "Équipements de base",
-      "Micro-Ondes",
-      "Douche italienne",
-      "Frigo",
-      "WIFI",
-    ],
-    tags: [
-      "Batignolle",
-      "Montmartre",
-      "Batignolle",
-      "Montmartre",
-      "Batignolle",
-      "Montmartre",
-    ],
-  }
+  const flat = useLoaderData()
 
   const startsNumber = 5
   const stars = []
@@ -70,40 +43,40 @@ export default function Flat() {
 
   return (
     <>
-      <CollapsibleHeightProvider>
-        <main className={flatCSS.main}>
-          <section>
-            <SlideShow pictures={flat.pictures} />
-          </section>
-          <section>
-            <div className={flatCSS.macroInformation}>
-              <div>
-                <h1 className={flatCSS.title}>{flat.title}</h1>
-                <p>{flat.location}</p>
-              </div>
-              <div className={flatCSS.host}>
-                <span className={flatCSS.hostName}>{flat.host.name}</span>
-                <img
-                  src={flat.host.picture}
-                  alt={flat.host.name}
-                  className={flatCSS.avatar}
-                />
-              </div>
+      <main className={flatCSS.main}>
+        <section>
+          <SlideShow pictures={flat.pictures} />
+        </section>
+        <section>
+          <div className={flatCSS.macroInformation}>
+            <div>
+              <h1 className={flatCSS.title}>{flat.title}</h1>
+              <p>{flat.location}</p>
             </div>
-            <div className={flatCSS.informationOnQuality}>
-              <ul className={flatCSS.tags}>
-                {flat.tags.length &&
-                  flat.tags.map((tag, index) => (
-                    <span key={index} className={flatCSS.tag}>
-                      {tag}
-                    </span>
-                  ))}
-              </ul>
-              <div className={flatCSS.stars}>
-                {stars.map((star, index) => createStar(index))}
-              </div>
+            <div className={flatCSS.host}>
+              <span className={flatCSS.hostName}>{flat.host.name}</span>
+              <img
+                src={flat.host.picture}
+                alt={flat.host.name}
+                className={flatCSS.avatar}
+              />
             </div>
-          </section>
+          </div>
+          <div className={flatCSS.informationOnQuality}>
+            <ul className={flatCSS.tags}>
+              {flat.tags.length &&
+                flat.tags.map((tag, index) => (
+                  <span key={index} className={flatCSS.tag}>
+                    {tag}
+                  </span>
+                ))}
+            </ul>
+            <div className={flatCSS.stars}>
+              {stars.map((star, index) => createStar(index))}
+            </div>
+          </div>
+        </section>
+        <CollapsibleHeightProvider>
           <section className={flatCSS.flatCaracteristics}>
             <Collapsible
               title="Description"
@@ -118,8 +91,8 @@ export default function Flat() {
               verticalAlign={true}
             />
           </section>
-        </main>
-      </CollapsibleHeightProvider>
+        </CollapsibleHeightProvider>
+      </main>
     </>
   )
 }
