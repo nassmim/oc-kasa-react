@@ -81,7 +81,14 @@
 }
 
 .collapsibleContent {
-  padding-bottom: 50px;
+  box-sizing: border-box;
+  display: none;
+}
+
+.collapsibleContent.visible {
+  display: block;
+  font-size: 1.125rem;
+  padding: 35px 15px 50px 20px;
 }
 
 .collapsibleContentList {
@@ -141,7 +148,8 @@
     grid-template-columns: 1fr;
     row-gap: 20px;
   }
-  .collapsibleContent {
-    padding-bottom: 5px;
+  .collapsibleContent.visible {
+    font-size: 0.75rem;
+    padding: 20px 5px 5px 10px;
   }
 }

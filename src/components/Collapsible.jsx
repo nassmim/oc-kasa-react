@@ -79,9 +79,9 @@ export default function Collapsible({
           className={
             collapsibleCSS.content +
             " " +
-            (isOpen
-              ? collapsibleCSS.visible + " " + parentCSS.collapsibleContent
-              : "")
+            parentCSS.collapsibleContent +
+            " " +
+            (isOpen ? parentCSS.visible : "")
           }
           style={{ minHeight: isOpen ? collapsibleMinHeight : "0px" }}
         >

@@ -22,7 +22,15 @@
 }
 
 .collapsibleContent {
-  padding-bottom: 10px;
+  box-sizing: border-box;
+  max-height: 0px;
+  transition: height 2000ms;
+}
+
+.collapsibleContent.visible {
+  max-height: 100%;
+  font-size: 1.5rem;
+  padding: 35px 15px 10px 20px;
 }
 
 @media (max-width: 767px) {
@@ -34,8 +42,8 @@
     font-size: 0.8125rem;
     height: 30px;
   }
-  .collapsibleContent {
+  .collapsibleContent.visible {
     font-size: 0.75rem;
-    padding-bottom: 60px;
+    padding: 20px 5px 60px 10px;
   }
 }

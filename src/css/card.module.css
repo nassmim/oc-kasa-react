@@ -9,9 +9,7 @@
 }
 
 .flatLink {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  position: relative;
   height: 100%;
   width: 100%;
   background: linear-gradient(
@@ -22,15 +20,18 @@
 }
 
 .flatTitle {
+  position: absolute;
+  top: 80%;
   font-size: 1.125rem;
   font-weight: 500;
   color: #fff;
-  padding: 20px;
+  padding: 0 10px 25px 20px;
 }
 
 @media screen and (max-width: 767px) {
   .flat {
     width: 335px;
     height: 255px;
+    padding: 0 10px 20px 20px;
   }
 }
