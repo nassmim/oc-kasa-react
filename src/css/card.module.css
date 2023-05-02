@@ -28,33 +28,9 @@
   padding: 20px;
 }
 
-@media screen and (max-width: 991px) {
-  .bannerDisplay {
-    height: 111px;
-    margin-bottom: 25px;
-  }
-
-  .title {
-    left: 5%;
-    font-size: 1.5rem;
-  }
-
-  .main {
-    background-color: transparent;
-    padding: 0;
-    border: none;
-    margin-bottom: 20px;
-  }
-
-  .flats {
-    grid-template-columns: 1fr;
-    place-items: center;
-    row-gap: 25px;
-  }
-
+@media screen and (max-width: 767px) {
   .flat {
-    min-width: 335px;
+    width: 335px;
     height: 255px;
-    aspect-ratio: initial;
   }
 }
