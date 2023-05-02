@@ -19,8 +19,24 @@ export default function Collapsible({
 
   const [openCollapsibleHeight, setOpenCollapsibleHeight] = useState(0)
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
   useEffect(() => {
-    if (verticalAlign) setOpenCollapsibleHeight(elementRef.current.clientHeight)
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
+
+    window.addEventListener("resize", handleWindowResize)
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (verticalAlign && windowWidth > 767)
+      setOpenCollapsibleHeight(elementRef.current.clientHeight)
+    else if (windowWidth <= 767) setOpenCollapsibleHeight(0)
   }, [isOpen])
 
   useEffect(() => {

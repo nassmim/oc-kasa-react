@@ -47,22 +47,10 @@ export default function Flat() {
         <section>
           <SlideShow pictures={flat.pictures} />
         </section>
-        <section>
-          <div className={flatCSS.macroInformation}>
-            <div>
-              <h1 className={flatCSS.title}>{flat.title}</h1>
-              <p>{flat.location}</p>
-            </div>
-            <div className={flatCSS.host}>
-              <span className={flatCSS.hostName}>{flat.host.name}</span>
-              <img
-                src={flat.host.picture}
-                alt={flat.host.name}
-                className={flatCSS.avatar}
-              />
-            </div>
-          </div>
-          <div className={flatCSS.informationOnQuality}>
+        <section className={flatCSS.flatMainInformation}>
+          <div className={flatCSS.flat}>
+            <h1 className={flatCSS.title}>{flat.title}</h1>
+            <p className={flatCSS.location}>{flat.location}</p>
             <ul className={flatCSS.tags}>
               {flat.tags.length &&
                 flat.tags.map((tag, index) => (
@@ -71,7 +59,17 @@ export default function Flat() {
                   </span>
                 ))}
             </ul>
-            <div className={flatCSS.stars}>
+          </div>
+          <div className={flatCSS.host}>
+            <div className={flatCSS.hostProfile}>
+              <p className={flatCSS.hostName}>{flat.host.name}</p>
+              <img
+                src={flat.host.picture}
+                alt={flat.host.name}
+                className={flatCSS.avatar}
+              />
+            </div>
+            <div className={flatCSS.hostRating}>
               {stars.map((star, index) => createStar(index))}
             </div>
           </div>
