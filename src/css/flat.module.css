@@ -38,11 +38,14 @@
 .informationOnQuality {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 25px;
 }
 
 .tags {
   display: flex;
+  flex-wrap: wrap;
   column-gap: 10px;
+  row-gap: 10px;
 }
 
 .tag {
@@ -61,4 +64,26 @@
 .stars {
   display: flex;
   column-gap: 15px;
+}
+
+.flatCaracteristics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 6%;
+  font-size: 1.125rem;
+}
+
+.collapsibleTitle {
+  font-size: 1.125rem;
+  height: 52px;
+}
+
+.collapsibleContent {
+  padding-bottom: 50px;
+}
+
+.collapsibleContentList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 7px;
 }

@@ -1,5 +1,7 @@
+import Collapsible from "../components/Collapsible.jsx"
 import SlideShow from "../components/SlideShow.jsx"
 import flatCSS from "../css/flat.module.css"
+import { CollapsibleHeightProvider } from "../context/index.jsx"
 
 export default function Flat() {
   const flat = {
@@ -30,7 +32,14 @@ export default function Flat() {
       "Frigo",
       "WIFI",
     ],
-    tags: ["Batignolle", "Montmartre"],
+    tags: [
+      "Batignolle",
+      "Montmartre",
+      "Batignolle",
+      "Montmartre",
+      "Batignolle",
+      "Montmartre",
+    ],
   }
 
   const startsNumber = 5
@@ -61,40 +70,56 @@ export default function Flat() {
 
   return (
     <>
-      <main className={flatCSS.main}>
-        <section>
-          <SlideShow pictures={flat.pictures} />
-        </section>
-        <section>
-          <div className={flatCSS.macroInformation}>
-            <div>
-              <h1 className={flatCSS.title}>{flat.title}</h1>
-              <p>{flat.location}</p>
+      <CollapsibleHeightProvider>
+        <main className={flatCSS.main}>
+          <section>
+            <SlideShow pictures={flat.pictures} />
+          </section>
+          <section>
+            <div className={flatCSS.macroInformation}>
+              <div>
+                <h1 className={flatCSS.title}>{flat.title}</h1>
+                <p>{flat.location}</p>
+              </div>
+              <div className={flatCSS.host}>
+                <span className={flatCSS.hostName}>{flat.host.name}</span>
+                <img
+                  src={flat.host.picture}
+                  alt={flat.host.name}
+                  className={flatCSS.avatar}
+                />
+              </div>
             </div>
-            <div className={flatCSS.host}>
-              <span className={flatCSS.hostName}>{flat.host.name}</span>
-              <img
-                src={flat.host.picture}
-                alt={flat.host.name}
-                className={flatCSS.avatar}
-              />
+            <div className={flatCSS.informationOnQuality}>
+              <ul className={flatCSS.tags}>
+                {flat.tags.length &&
+                  flat.tags.map((tag, index) => (
+                    <span key={index} className={flatCSS.tag}>
+                      {tag}
+                    </span>
+                  ))}
+              </ul>
+              <div className={flatCSS.stars}>
+                {stars.map((star, index) => createStar(index))}
+              </div>
             </div>
-          </div>
-          <div className={flatCSS.informationOnQuality}>
-            <ul className={flatCSS.tags}>
-              {flat.tags.length &&
-                flat.tags.map((tag, index) => (
-                  <span key={index} className={flatCSS.tag}>
-                    {tag}
-                  </span>
-                ))}
-            </ul>
-            <div className={flatCSS.stars}>
-              {stars.map((star, index) => createStar(index))}
-            </div>
-          </div>
-        </section>
-      </main>
+          </section>
+          <section className={flatCSS.flatCaracteristics}>
+            <Collapsible
+              title="Description"
+              content={flat.description}
+              parentCSS={flatCSS}
+              verticalAlign={true}
+            />
+            <Collapsible
+              title="Équipements"
+              content={flat.equipments}
+              parentCSS={flatCSS}
+              verticalAlign={true}
+            />
+          </section>
+        </main>
+      </CollapsibleHeightProvider>
     </>
   )
 }

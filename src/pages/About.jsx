@@ -16,9 +16,9 @@ export default function About() {
             key={`${section.title}-${index}`}
           >
             <Collapsible
-              titleClass={aboutCSS.collapsileTitle}
               title={section.title}
-              description={section.description}
+              content={section.description}
+              parentCSS={aboutCSS}
             />
           </section>
         ))}
