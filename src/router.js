@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 
+import { getFlatsLoader } from "./pages/Home.jsx"
+
 import Home from "./pages/Home.jsx"
 import App from "./App.js"
 import ErrorNotFound from "./pages/ErrorNotFound.jsx"
@@ -15,6 +17,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+        loader: getFlatsLoader,
       },
       {
         path: "flat/:id",

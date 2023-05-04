@@ -1,0 +1,109 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 223px;
+  margin-bottom: 45px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.35;
+}
+
+.title {
+  position: absolute;
+  max-width: 65%;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.gallery {
+  background-color: #f7f7f7;
+  padding: 60px 50px;
+  border-radius: 25px;
+  margin-bottom: 40px;
+}
+
+.gallery.loading {
+  opacity: 0.25;
+  transition: opacity 200ms;
+  transition-delay: 200ms;
+}
+
+.flats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 60px;
+  row-gap: 50px;
+}
+
+.flat {
+  display: flex;
+  background-image: url(https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg);
+  max-width: 340px;
+  aspect-ratio: 1/1;
+  background-size: cover;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.flatLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 96, 96, 0.4) 74%,
+    rgba(167, 14, 14, 1) 100%
+  );
+}
+
+.flatTitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #fff;
+  padding: 20px;
+}
+
+@media screen and (max-width: 991px) {
+  .hero {
+    height: 111px;
+    background-position: 47%;
+    background-size: cover;
+    margin-bottom: 25px;
+  }
+
+  .title {
+    left: 5%;
+    font-size: 1.5rem;
+  }
+
+  .gallery {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    margin-bottom: 20px;
+  }
+
+  .flats {
+    grid-template-columns: 1fr;
+    place-items: center;
+    row-gap: 25px;
+  }
+
+  .flat {
+    min-width: 335px;
+    height: 255px;
+    aspect-ratio: initial;
+  }
+}

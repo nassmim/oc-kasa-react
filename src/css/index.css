@@ -1,5 +1,6 @@
 html {
   font-size: 100%;
+  font-weight: 500;
 }
 
 body {
@@ -8,11 +9,6 @@ body {
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 a {
@@ -35,4 +31,11 @@ p,
 figure,
 section {
   margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
