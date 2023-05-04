@@ -1,0 +1,38 @@
+html {
+  font-size: 100%;
+}
+
+body {
+  margin-left: 7%;
+  margin-right: 7%;
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+ol,
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+div,
+p,
+figure,
+section {
+  margin: 0;
+}
