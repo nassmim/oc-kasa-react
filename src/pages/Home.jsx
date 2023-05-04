@@ -1,8 +1,8 @@
 import { useLoaderData, Link, useNavigation } from "react-router-dom"
 import { getFlats } from "../api/flats.js"
-import homeHeroImg from "../assets/backgrounds/home_hero.png"
-import home from "../css/home.module.css"
-import { useEffect } from "react"
+import bannerImg from "../assets/backgrounds/home_banner.png"
+import homeCSS from "../css/home.module.css"
+import Banner from "../components/Banner.jsx"
 
 export async function getFlatsLoader() {
   const flats = await getFlats().catch((err) => {
@@ -15,44 +15,35 @@ export default function Home() {
   const flats = useLoaderData()
   const navigation = useNavigation()
 
-  useEffect(() => {
-    console.log(navigation.state)
-  }, [navigation])
   return (
     <>
-      <div
-        className={home.hero}
-        style={{
-          backgroundImage: `url(${homeHeroImg})`,
-        }}
-      >
-        <div className={home.background}></div>
-        <h1 className={home.title}>Chez vous, partout et ailleurs</h1>
-      </div>
+      <Banner bannerClass={homeCSS.bannerDisplay} bannerImg={bannerImg}>
+        <h1 className={homeCSS.title}>Chez vous, partout et ailleurs</h1>
+      </Banner>
 
-      <section
+      <main
         className={
-          home.gallery + " " + navigation.state === "loading" ? "loading" : ""
+          homeCSS.main + " " + (navigation.state === "loading" ? "loading" : "")
         }
       >
         {flats && flats.length && (
           <>
-            <ul className={home.flats}>
+            <ul className={homeCSS.flats}>
               {flats.map((flat) => (
                 <li
                   key={flat.id}
-                  className={home.flat}
+                  className={homeCSS.flat}
                   style={{ backgroundImage: `url(${flat.pictures[0]})` }}
                 >
-                  <Link to={`flat/${flat.id}`} className={home.flatLink}>
-                    <h2 className={home.flatTitle}>{flat.title}</h2>
+                  <Link to={`flat/${flat.id}`} className={homeCSS.flatLink}>
+                    <h2 className={homeCSS.flatTitle}>{flat.title}</h2>
                   </Link>
                 </li>
               ))}
             </ul>
           </>
         )}
-      </section>
+      </main>
     </>
   )
 }
