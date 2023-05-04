@@ -1,32 +1,38 @@
+.collapsible {
+  display: flex;
+  flex-direction: column;
+}
+
 .title {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #ff6060;
-  font-size: 1.5rem;
   color: white;
   padding-right: 30px;
   padding-left: 20px;
   border-radius: 5px;
   z-index: 2;
+  cursor: pointer;
 }
 
-.description {
-  height: 0;
+.content {
+  display: none;
+  box-sizing: border-box;
   overflow: hidden;
-  font-size: 1.5rem;
   font-weight: 400;
   color: #ff6060;
   background-color: #f7f7f7;
   border-radius: 5px;
   transform: translateY(-5px);
-  transition: height 5000ms;
 }
 
-.description.visible {
-  height: fit-content;
-  padding: 35px 25px 10px 20px;
+.content.visible {
+  display: block;
+  padding-top: 35px;
+  padding-right: 25px;
+  padding-left: 20px;
 }
 
 .arrowUp {
@@ -34,8 +40,10 @@
 }
 
 @media screen and (max-width: 767px) {
-  .description.visible {
+  .content.visible {
     font-size: 0.75rem;
-    padding: 20px 5px 60px 10px;
+    padding-top: 20px;
+    padding-right: 5px;
+    padding-left: 10px;
   }
 }

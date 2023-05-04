@@ -5,7 +5,7 @@ import { getFlatsLoader } from "./pages/Home.jsx"
 import Home from "./pages/Home.jsx"
 import App from "./App.js"
 import ErrorNotFound from "./pages/ErrorNotFound.jsx"
-import Flat from "./pages/Flat.jsx"
+import Flat, { getFlatLoader } from "./pages/Flat.jsx"
 import About from "./pages/About.jsx"
 
 export const router = createBrowserRouter([
@@ -15,17 +15,23 @@ export const router = createBrowserRouter([
     errorElement: <ErrorNotFound />,
     children: [
       {
-        index: true,
-        element: <Home />,
-        loader: getFlatsLoader,
-      },
-      {
-        path: "flat/:id",
-        element: <Flat />,
-      },
-      {
-        path: "about",
-        element: <About />,
+        errorElement: <ErrorNotFound />,
+        children: [
+          {
+            index: true,
+            element: <Home />,
+            loader: getFlatsLoader,
+          },
+          {
+            path: "flat/:id",
+            element: <Flat />,
+            loader: getFlatLoader,
+          },
+          {
+            path: "about",
+            element: <About />,
+          },
+        ],
       },
     ],
   },

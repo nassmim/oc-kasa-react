@@ -1,6 +1,6 @@
 import header from "../css/header.module.css"
 
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import LogoSVG from "./LogoSVG.jsx"
 
 export default function Header() {
@@ -11,9 +11,9 @@ export default function Header() {
   return (
     <>
       <header className={header.display}>
-        <div className={header.logo}>
+        <Link to="/" className={header.logo}>
           <LogoSVG cssModuleName={header} />
-        </div>
+        </Link>
 
         <nav className={header.menu}>
           <NavLink

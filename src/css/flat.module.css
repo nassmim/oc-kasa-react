@@ -1,0 +1,147 @@
+.main {
+  margin-bottom: 45px;
+}
+
+.flatMainInformation {
+  display: flex;
+  justify-content: space-between;
+  color: #ff6060;
+  margin-bottom: 25px;
+}
+
+.flat {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.location {
+  font-size: 1.125rem;
+  margin-bottom: 25px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+.tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 115px;
+  min-height: 24px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #fff;
+  border-radius: 10px;
+  background-color: #ff6060;
+}
+
+.hostProfile {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  column-gap: 10px;
+  margin-bottom: 25px;
+}
+
+.hostName {
+  width: min-content;
+}
+
+.avatar {
+  width: 64px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.hostRating {
+  display: flex;
+  column-gap: 15px;
+}
+
+.flatCaracteristics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 6%;
+  font-size: 1.125rem;
+}
+
+.collapsibleTitle {
+  font-size: 1.125rem;
+  height: 52px;
+}
+
+.collapsibleContent {
+  padding-bottom: 50px;
+}
+
+.collapsibleContentList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 7px;
+}
+
+@media (max-width: 767px) {
+  .main {
+    margin-bottom: 20px;
+  }
+  .flatMainInformation {
+    flex-direction: column;
+    row-gap: 15px;
+  }
+
+  .title {
+    font-size: 1.125rem;
+    margin-bottom: 13px;
+  }
+  .location {
+    font-size: 0.875rem;
+    margin-bottom: 15px;
+  }
+  .tag {
+    font-size: 0.625rem;
+    width: 25%;
+  }
+  .tags {
+    column-gap: 10px;
+  }
+  .host {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  .hostProfile {
+    margin-bottom: 0px;
+  }
+  .hostName {
+    font-size: 0.75rem;
+  }
+  .avatar {
+    width: 32px;
+  }
+  .hostRating {
+    column-gap: 6px;
+  }
+  .star {
+    width: 13.41px;
+    height: 13px;
+  }
+  .flatCaracteristics {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .collapsibleContent {
+    padding-bottom: 5px;
+  }
+}
