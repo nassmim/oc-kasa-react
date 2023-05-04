@@ -23,12 +23,12 @@
 
 .collapsibleContent {
   box-sizing: border-box;
-  max-height: 0px;
-  transition: height 2000ms;
+  height: 0px;
+  transition: heigth 1000ms, padding-top 1000ms, padding-bottom 1000ms;
 }
 
 .collapsibleContent.visible {
-  max-height: 100%;
+  height: 100%;
   font-size: 1.5rem;
   padding: 35px 15px 10px 20px;
 }
