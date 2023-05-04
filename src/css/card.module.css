@@ -9,9 +9,7 @@
 }
 
 .flatLink {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  position: relative;
   height: 100%;
   width: 100%;
   background: linear-gradient(
@@ -22,39 +20,18 @@
 }
 
 .flatTitle {
+  position: absolute;
+  top: 80%;
   font-size: 1.125rem;
   font-weight: 500;
   color: #fff;
-  padding: 20px;
+  padding: 0 10px 25px 20px;
 }
 
-@media screen and (max-width: 991px) {
-  .bannerDisplay {
-    height: 111px;
-    margin-bottom: 25px;
-  }
-
-  .title {
-    left: 5%;
-    font-size: 1.5rem;
-  }
-
-  .main {
-    background-color: transparent;
-    padding: 0;
-    border: none;
-    margin-bottom: 20px;
-  }
-
-  .flats {
-    grid-template-columns: 1fr;
-    place-items: center;
-    row-gap: 25px;
-  }
-
+@media screen and (max-width: 767px) {
   .flat {
-    min-width: 335px;
+    width: 335px;
     height: 255px;
-    aspect-ratio: initial;
+    padding: 0 10px 20px 20px;
   }
 }

@@ -18,6 +18,7 @@ export default function Collapsible({
   } = useContext(CollapsibleHeightContext)
 
   const [openCollapsibleHeight, setOpenCollapsibleHeight] = useState(0)
+  const [collapsibleContentHeight, setCollapsibleContentHeight] = useState(0)
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
@@ -34,20 +35,21 @@ export default function Collapsible({
   }, [])
 
   useEffect(() => {
-    if (verticalAlign && windowWidth > 767)
-      setOpenCollapsibleHeight(elementRef.current.clientHeight)
-    else if (windowWidth <= 767) setOpenCollapsibleHeight(0)
+    setOpenCollapsibleHeight(elementRef.current.clientHeight)
   }, [isOpen])
 
   useEffect(() => {
-    setIsOpenNumber(isOpen ? isOpenNumber + 1 : Math.max(0, isOpenNumber - 1))
-    if (isOpenNumber > 1)
-      setCollapsibleMinHeight(
-        openCollapsibleHeight > collapsibleMinHeight
-          ? openCollapsibleHeight
-          : collapsibleMinHeight
-      )
-    else setCollapsibleMinHeight(openCollapsibleHeight)
+    const isDesktop = windowWidth > 767 ? true : false
+    if (verticalAlign && isDesktop) {
+      setIsOpenNumber(isOpen ? isOpenNumber + 1 : Math.max(0, isOpenNumber - 1))
+      if (isOpenNumber > 1) {
+        setCollapsibleMinHeight(
+          openCollapsibleHeight > collapsibleMinHeight
+            ? openCollapsibleHeight
+            : collapsibleMinHeight
+        )
+      } else setCollapsibleMinHeight(openCollapsibleHeight)
+    } else if (!isDesktop) setCollapsibleMinHeight(0)
   }, [openCollapsibleHeight])
 
   return (
@@ -79,11 +81,13 @@ export default function Collapsible({
           className={
             collapsibleCSS.content +
             " " +
-            (isOpen
-              ? collapsibleCSS.visible + " " + parentCSS.collapsibleContent
-              : "")
+            parentCSS.collapsibleContent +
+            " " +
+            (isOpen ? parentCSS.visible : "")
           }
-          style={{ minHeight: isOpen ? collapsibleMinHeight : "0px" }}
+          style={{
+            minHeight: isOpen ? collapsibleMinHeight : "0px",
+          }}
         >
           {Array.isArray(content) ? (
             <ul className={parentCSS.collapsibleContentList}>
