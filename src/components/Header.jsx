@@ -21,7 +21,6 @@ export default function Header() {
             className={({ isActive, isPending }) =>
               isNavLinkActive(isActive, isPending) + " " + header.link
             }
-            end
           >
             Accueil
           </NavLink>
